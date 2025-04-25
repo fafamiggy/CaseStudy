@@ -60,30 +60,27 @@ public class ECP02 {
     
     private static void addNewEmployee(ManageUsersECP02 manager) {
         
-        String name = JOptionPane.showInputDialog("Put employee name:");
+        String name = JOptionPane.showInputDialog("Put employee name /Poner nombre del empleado:");
         
-        if (name == null || name.trim().isEmpty()) {
-            
-            JOptionPane.showMessageDialog(null, "Put field cannot be empty!");
-            
+        if (name == null || name.trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Put field cannot be empty / no puede estar vacío!");
             return;
-            
         }
         
-        String ageStr = JOptionPane.showInputDialog("Put employee age:");
+        String ageStr = JOptionPane.showInputDialog("Put employee age / Poner edad del empleado:");
         
         int age = Integer.parseInt(ageStr);
         
-        String department = JOptionPane.showInputDialog("Put department:");
+        String department = JOptionPane.showInputDialog("Put department / Poner departamento:");
         
         if (department == null || department.trim().isEmpty()) {
             
-            JOptionPane.showMessageDialog(null, "This field cannot be empty!");
+            JOptionPane.showMessageDialog(null, "Put field cannot be empty / no puede estar vacío");
             
             return;
         }
         
-        String salaryStr = JOptionPane.showInputDialog("Put salary:");
+        String salaryStr = JOptionPane.showInputDialog("Put salary / Poner salario:");
         
         double salary = Double.parseDouble(salaryStr);
         
@@ -92,10 +89,10 @@ public class ECP02 {
     
     private static void searchEmployee(ManageUsersECP02 manager) {
         
-        String searchName = JOptionPane.showInputDialog("Put name to search:");
+        String searchName = JOptionPane.showInputDialog("Put name to search / Pon nombre para buscar:");
         
-        if (searchName != null && !searchName.trim().isEmpty()) {
-            
+        if (searchName != null && 
+           !searchName.trim().isEmpty()) {
             manager.searchEmployeeByName(searchName);
             
         }
@@ -105,7 +102,7 @@ public class ECP02 {
     private static void showAverageSalary(ManageUsersECP02 manager) {
         double avg = manager.calculateAverageSalary();
         JOptionPane.showMessageDialog(null, 
-            String.format("Average Salary: $%.2f", avg),
+            String.format("Average Salary / Salario promedio: $%.2f", avg),
             "Average Salary", JOptionPane.INFORMATION_MESSAGE);
     }
     
@@ -113,11 +110,11 @@ public class ECP02 {
         EmployeeECP02 highest = manager.getHighestPaidEmployee();
         if (highest != null) {
             JOptionPane.showMessageDialog(null, 
-                "Highest Paid Employee:\n\n" + highest.toString(),
-                "Highest Paid", JOptionPane.INFORMATION_MESSAGE);
+                "Highest Paid Employee / El empleado mejor pagado:\n\n" + highest.toString(),
+                "Highest Paid /Mejor pagado ", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, 
-                "No employees in system",
+                "No employees in system / No hay empleados en el sistema.",
                 "Error", JOptionPane.WARNING_MESSAGE);
         }
     }
